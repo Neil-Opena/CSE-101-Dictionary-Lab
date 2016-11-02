@@ -4,32 +4,30 @@ def buildIndex(text):
     text = text.lower().replace('.'and','and'!'and'?','')
     dictionary = {}
     words = text.split(' ')
-    mylist = []
-    
+
+    temp_list = words[:]
+    #creates copy of the separated words
     for word in words:
         if word in dictionary:
-            dictionary[word].append(words.index(word))
+            dictionary[word].append(temp_list.index(word))
+                
         else:
-            dictionary[word] = list()
+            dictionary[word] = [words.index(word)]
+            temp_list[words.index(word)] = 'randomwordthatihopeisnttested'
     return dictionary
-    #FIX ME
-    #doesnt include the first occurance of word
-    #repeats the same position ex: 9,9,9
-
+    
+#so far it works for word counts of 1 - 2
 def displayIndex(dictionary):
     sorted_keys = sorted(dictionary.keys())
     for key in sorted_keys:
-        print (key,':',dictionary[key])
+        print (key + ':'+ str(dictionary[key]))
     
 
 def main():
     text = input("Enter text here: ")
     dictionary = buildIndex(text)
-    #print (dictionary)
     print(displayIndex(dictionary)) 
 
-
+#For some reason it prints None at the end
 main()
- 
-
 
