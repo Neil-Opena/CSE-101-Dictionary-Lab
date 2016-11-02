@@ -10,13 +10,14 @@ def buildIndex(text):
     for word in words:
         if word in dictionary:
             dictionary[word].append(temp_list.index(word))
-                
+            #I want it so that the temp_list is modified so that string takes place of word
+            temp_list[temp_list.index(word)] = 'randomwordthatihopeisnttested'       
         else:
             dictionary[word] = [words.index(word)]
+            #only runs the first time word is recognized
             temp_list[words.index(word)] = 'randomwordthatihopeisnttested'
     return dictionary
-    
-#so far it works for word counts of 1 - 2
+
 def displayIndex(dictionary):
     sorted_keys = sorted(dictionary.keys())
     for key in sorted_keys:
@@ -26,7 +27,9 @@ def displayIndex(dictionary):
 def main():
     text = input("Enter text here: ")
     dictionary = buildIndex(text)
-    print(displayIndex(dictionary)) 
+    print("Index Contents:")
+    print(displayIndex(dictionary))
+    
 
 #For some reason it prints None at the end
 main()
