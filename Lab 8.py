@@ -1,15 +1,27 @@
 #CSE Lab 8
 
 def buildIndex(text):
-    #creates an empty dictionary to hold final result
+    text = text.lower().replace('.'and','and'!'and'?','')
     dictionary = {}
     words = text.split(' ')
     mylist = []
-    mylist.append(words)
-    print (mylist)
-    #uses split() to break into list of words
+    
+    for word in words:
+        if word in dictionary:
+            dictionary[word].append(words.index(word))
+        else:
+            dictionary[word] = list()
+    return dictionary
+
+def displayIndex(dictionary):
+    keys = sorted(dictionary.keys())
+    return keys
+    """for key in keys:"""
 
 
-text = input("Enter text here")
-buildIndex(text)
+text = input("Enter text here:")
+dictionary = (buildIndex(text))
+print (dictionary) 
+print(displayIndex(dictionary)) 
+
 
