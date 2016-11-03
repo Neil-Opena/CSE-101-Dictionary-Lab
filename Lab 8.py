@@ -28,9 +28,7 @@ def main():
     text = input("Enter text here: ")
     dictionary = buildIndex(text)
     print("Index Contents:")
-    print(displayIndex(dictionary))
-    
+    displayIndex(dictionary)
 
-#For some reason it prints None at the end
 main()
 
